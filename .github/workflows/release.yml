@@ -1,0 +1,80 @@
+name: Package release
+
+# Thanks, Copilot
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: "Existing release tag (for example, v1.0-mc26.3 or 26.3)"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: package-release-${{ inputs.release_tag || github.event.release.tag_name }}
+  cancel-in-progress: false
+
+jobs:
+  package:
+    # Immutable releases must receive their assets while they are still drafts.
+    if: github.event_name != 'release' || !github.event.release.immutable
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      RELEASE_TAG: ${{ inputs.release_tag || github.event.release.tag_name }}
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Check that the release exists
+        run: gh release view "$RELEASE_TAG" --json tagName --jq .tagName
+
+      - name: Check out the release tag
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: refs/tags/${{ env.RELEASE_TAG }}
+          persist-credentials: false
+
+      - name: Build datapack ZIP
+        id: package
+        run: |
+          python3 <<'PY'
+          import json
+          import os
+          import re
+          from pathlib import Path
+          from zipfile import ZIP_DEFLATED, ZipFile
+
+          if not Path("data").is_dir():
+              raise SystemExit("The release tag must contain a data/ directory.")
+          if not Path("pack.mcmeta").is_file():
+              raise SystemExit("The release tag must contain pack.mcmeta.")
+          json.loads(Path("pack.mcmeta").read_text(encoding="utf-8"))
+
+          safe_tag = re.sub(r"[^A-Za-z0-9._-]", "-", os.environ["RELEASE_TAG"])
+          archive = Path(os.environ["RUNNER_TEMP"]) / f"SurvivalGames-{safe_tag}.zip"
+          files = [Path("pack.mcmeta")]
+          files.extend(path for path in sorted(Path("data").rglob("*")) if path.is_file())
+          if Path("pack.png").is_file():
+              files.append(Path("pack.png"))
+
+          with ZipFile(archive, "w", compression=ZIP_DEFLATED) as output:
+              for path in files:
+                  output.write(path, arcname=path.as_posix())
+
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
+              output.write(f"archive={archive}\n")
+          print(f"Built {archive.name} with {len(files)} files.")
+          PY
+
+      - name: Attach ZIP to the release
+        env:
+          ARCHIVE: ${{ steps.package.outputs.archive }}
+        run: gh release upload "$RELEASE_TAG" "$ARCHIVE" --clobber
