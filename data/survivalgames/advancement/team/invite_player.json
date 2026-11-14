@@ -1,0 +1,21 @@
+{
+  "criteria": {
+    "survivalgames.team.accept_invitation": {
+      "trigger": "minecraft:tick",
+      "conditions": {
+        "player": {
+          "type": "minecraft:entity_scores",
+          "entity": "this",
+          "scores": {
+            "invite_player": {
+              "min": 1
+            }
+          }
+        }
+      }
+    }
+  },
+  "rewards": {
+    "function": "survivalgames:team/advancement/invite_player"
+  }
+}

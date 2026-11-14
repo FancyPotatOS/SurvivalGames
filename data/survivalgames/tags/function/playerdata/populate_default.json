@@ -1,0 +1,4 @@
+{
+    "description": "Populates the storage 'survivalgames:playerdata current' with the default data",
+    "values": []
+}

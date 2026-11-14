@@ -1,0 +1,4 @@
+{
+    "description": "Set the storage 'survivalgames:temp reset' to true if the player who just logged in should be reset",
+    "values": []
+}

@@ -1,0 +1,22 @@
+{
+  "criteria": {
+    "survivalgames.team.use_invitation_stick": {
+      "trigger": "minecraft:using_item",
+      "conditions": {
+        "item": {
+          "items": "minecraft:stick",
+          "predicates": {
+            "minecraft:custom_data": {
+              "survivalgames": {
+                "type": "invitation_stick"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "rewards": {
+    "function": "survivalgames:team/advancement/use_invitation_stick"
+  }
+}

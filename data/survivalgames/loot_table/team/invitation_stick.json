@@ -1,0 +1,68 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:stick",
+          "modifier": [
+            {
+              "type": "minecraft:set_custom_data",
+              "tag": {
+                "survivalgames": {
+                  "type": "invitation_stick"
+                }
+              }
+            },
+            {
+              "type": "minecraft:set_name",
+              "name": {
+                "text": "Invitation Stick",
+                "bold": false,
+                "italic": false
+              }
+            },
+            {
+              "type": "minecraft:set_lore",
+              "lore": [
+                {
+                  "text": "Right-click to invite a player",
+                  "color": "gray",
+                  "bold": false,
+                  "italic": true
+                }
+              ],
+              "mode": "replace_all"
+            },
+            {
+              "type": "minecraft:set_components",
+              "components": {
+                "minecraft:kinetic_weapon": {
+                  "delay_ticks": 0,
+                  "contact_cooldown_ticks": 0,
+                  "forward_movement": 0,
+                  "damage_multiplier": 0
+                },
+                "minecraft:attack_animation": {
+                  "type":"stab"
+                },
+                "minecraft:interact_animation": {
+                  "type":"stab"
+                },
+                "minecraft:attack_range": {
+                  "min_reach": 0,
+                  "max_reach": 0,
+                  "min_creative_reach": 0,
+                  "max_creative_reach": 0,
+                  "hitbox_margin": 0,
+                  "mob_factor": 0
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
