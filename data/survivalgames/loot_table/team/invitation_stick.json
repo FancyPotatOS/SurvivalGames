@@ -18,7 +18,8 @@
             {
               "type": "minecraft:set_name",
               "name": {
-                "text": "Invitation Stick",
+                "translate": "survivalgames.team.invite.stick.name",
+                "fallback": "Invitation Stick",
                 "bold": false,
                 "italic": false
               }
@@ -27,7 +28,8 @@
               "type": "minecraft:set_lore",
               "lore": [
                 {
-                  "text": "Right-click to invite a player",
+                "translate": "survivalgames.team.invite.stick.lore",
+                "fallback": "Right-click to invite a player",
                   "color": "gray",
                   "bold": false,
                   "italic": true

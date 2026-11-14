@@ -1,6 +1,7 @@
 {
     "description": "Runs when the player logs in",
     "values": [
-        "#survivalgames:player/initialize"
+        "#survivalgames:player/initialize",
+        "survivalgames:state/on_login"
     ]
 }

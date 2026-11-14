@@ -15,12 +15,11 @@ tellraw @a ["",{"text":"[Survival Games Datapack]","bold":true,"color":"dark_blu
 # Set this as the latest $version number
 scoreboard players set $version survivalgames.master 1
 
-
-# Forceloaded world section
+# World setup
+# # Forceloaded world section
 forceload add 0 0 1 1
-
-# Configuration
-function survivalgames:config/reset
+# # Gamerules
+gamerule immediate_respawn true
 
 # Player Data
 data merge storage survivalgames:playerdata {}
@@ -35,6 +34,14 @@ scoreboard objectives modify survivalgames.player.id numberformat styled {bold:t
 
 scoreboard players set $next_id survivalgames.player.id 1
 
+# # Health
+scoreboard objectives add survivalgames.player.old_health dummy
+scoreboard objectives add survivalgames.player.health health
+
+# # Deaths
+scoreboard objectives add survivalgames.player.old_deaths dummy
+scoreboard objectives add survivalgames.player.deaths deathCount
+
 # Teams
 data merge storage survivalgames:team {invitations:{}}
 
@@ -47,4 +54,11 @@ scoreboard objectives add survivalgames.team.invite.join.trigger trigger
 scoreboard objectives add invite_player trigger
 scoreboard objectives add survivalgames.team.use_invitation_stick.cooldown dummy
 
+# States
+data merge storage survivalgames:state {current_state:"survivalgames:lobby",next_state:"survivalgames:lobby",fallback_state:"survivalgames:lobby"}
+
+scoreboard objectives add survivalgames.state dummy
+
+# Configuration
+function survivalgames:config/reset
 

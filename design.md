@@ -56,26 +56,27 @@ This is a map of some state data. It is removed and recreated whenever transitio
 
 Assuming your state is called `<state>`.
 
-- API calls with a hashtag ***#*** should only be run when the storage `survivalgames:state current_state` is this state's ID
-- API calls with an asterick ***\**** should only be run when the scoreboard `survivalgames.state <state>.current` is 1
+To transition to another state, assign the appropriate storage values `survivalgames:state next_state` and `survivalgames:state fallback_state` then run the function `survivalgames:state/transition`
 
+- API calls with a hashtag ***#*** should only be run when the storage `survivalgames:state next_state` is this state's ID
+- API calls with an asterick ***\**** should only be run when the scoreboard `survivalgames.state <state>.current` is 1
 
 **`#survivalgames:state/acknowledge` #**
 
-Sets an appropriate acknowledgement code. Use this to check the state requirements (player count, map chosen, configuration, etc.)
+Sets an appropriate acknowledgement code in scoreboard `acknowledgement_code `. Use this to check the state requirements (player count, map chosen, configuration, etc.) If acknowledged, now is the time to set the score `survivalgames.state <state>.current` to 1.
 
-If acknowledged, now is the time to set the score `survivalgames.state <state>.current` to 1
+It's important to note that if a state fails to transition to another state and this is the fallback state, an acknowledgement is not asked of this state.
 
 Acknowledgement Codes:
 - 0 - Unacknowledged
-    - Default code before API call
-    - If not overwritten, it will send the state to its fallback state
+    - Default code before API call.
+    - This will send the state to its fallback state with an error message naming the failed target state.
 - 1 - Acknowledged
     - State is valid and accepted
 - 2 - Failed
     - Failed to load state
     - This could be due to a lack of players, or any other reason. It's recommended to display a reason.
-    - This will send the state to its fallback state with an error message naming the failed target state
+    - If set, will quietly send the state to its fallback state.
 
 **`#survivalgames:state/prestart` \***
 
@@ -97,23 +98,55 @@ Clear this player of all data relating to this state. Can be run during any othe
 
 Runs every tick
 
-**`#survivalgames:state/new_player` \***
+**`#survivalgames:state/on_login` \***
 
 Run by this player who was just logged in.
 
 This is run before the tick function
 
+**`#survivalgames:state/on_death_no_source` \***
+
+Run when this player dies without a source entity. This always runs before the on_hurt event.
+
 **`#survivalgames:state/on_death` \***
 
-Run when this player dies
+Run when this player dies. This always runs before the on_kill event.
 
-**`#survivalgames:state/on_damage` \***
+The attacker is tagged with the tag `survivalgames.state.attacker`
+\
+The target (this entity) is tagged with the tag `survivalgames.state.target`
 
-Run when this player damages something
+**`#survivalgames:state/on_kill` \***
+
+Run when this player kills something. This always runs before the on_hurt event.
+
+The attacker (this entity) is tagged with the tag `survivalgames.state.attacker`
+\
+The target cannot be tagged unfortunately
+
+**`#survivalgames:state/on_hurt_no_source` \***
+
+Run when this player is hurt without a source. This always runs before the on_attack event.
+
+The score `$health_delta survivalgames.player.old_health` denotes how much health was lost.
 
 **`#survivalgames:state/on_hurt` \***
 
-Run when this player is hurt
+Run when this player is hurt by another entity. This always runs before the on_attack event.
+
+The attacker is tagged with the tag `survivalgames.state.attacker`
+\
+The target (this entity) is tagged with the tag `survivalgames.state.target`
+
+The score `$health_delta survivalgames.player.old_health` denotes how much health was lost.
+
+**`#survivalgames:state/on_attack` \***
+
+Run when this player attacks something. This always runs after the on_hurt event.
+
+The attacker (this entity) is tagged with the tag `survivalgames.state.attacker`
+\
+If the target is alive, it is tagged with the tag `survivalgames.state.target`
 
 ## Other Features
 

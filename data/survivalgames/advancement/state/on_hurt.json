@@ -1,0 +1,15 @@
+{
+  "criteria": {
+    "survivalgames.state.on_hurt": {
+      "trigger": "minecraft:entity_hurt_player",
+      "conditions": {
+        "damage": {
+          "source_entity": {}
+        }
+      }
+    }
+  },
+  "rewards": {
+    "function": "survivalgames:state/advancements/on_hurt"
+  }
+}

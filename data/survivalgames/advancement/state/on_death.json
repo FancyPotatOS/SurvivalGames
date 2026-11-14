@@ -1,0 +1,11 @@
+{
+  "criteria": {
+    "survivalgames.state.on_death": {
+      "trigger": "minecraft:entity_killed_player",
+      "conditions": {}
+    }
+  },
+  "rewards": {
+    "function": "survivalgames:state/advancements/on_death"
+  }
+}

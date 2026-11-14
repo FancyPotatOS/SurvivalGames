@@ -1,0 +1,17 @@
+{
+  "criteria": {
+    "survivalgames.state.on_kill": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {}
+        }
+      }
+    }
+  },
+  "rewards": {
+    "function": "survivalgames:state/advancements/on_kill"
+  }
+}

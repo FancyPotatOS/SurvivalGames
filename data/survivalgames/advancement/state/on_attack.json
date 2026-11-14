@@ -1,0 +1,11 @@
+{
+  "criteria": {
+    "survivalgames.state.on_attack": {
+      "trigger": "minecraft:player_hurt_entity",
+      "conditions": {}
+    }
+  },
+  "rewards": {
+    "function": "survivalgames:state/advancements/on_attack"
+  }
+}
