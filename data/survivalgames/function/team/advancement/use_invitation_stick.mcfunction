@@ -18,4 +18,5 @@ execute if score $world_time survivalgames.master <= $temp.last_used_invitation_
 scoreboard players enable @s invite_player
 tellraw @a[tag=!something] {text:"[Click here to invite a player]",bold:true,color:green,hover_event:{action:"show_text",value:{text:"Enter the player's ID at the end of the command"}},click_event:{action:"suggest_command",command:"/trigger invite_player set "}}
 tellraw @a[tag=!something] {text:"[Click here to show your team]",bold:true,color:green,click_event:{action:"run_command",command:"/trigger invite_player set -1"}}
+tellraw @a[tag=!something] {text:"[Click here to leave your team]",bold:true,color:red,click_event:{action:"run_command",command:"/trigger invite_player set -2"}}
 
