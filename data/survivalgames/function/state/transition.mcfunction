@@ -10,6 +10,7 @@
 # Assume unacknowledged
 scoreboard players set $acknowledgement_code survivalgames.state 0
 
+# Look for acknowledgement
 function #survivalgames:state/acknowledge
 
 execute if score $acknowledgement_code survivalgames.state matches 0 run return run function survivalgames:state/ack/unacknowledged

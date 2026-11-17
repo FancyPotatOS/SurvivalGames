@@ -7,6 +7,9 @@
 #
 
 
+clear @s
+effect clear @s
+
 effect give @s minecraft:saturation 1 255 true
 effect give @s minecraft:hunger 3 200 true
 effect give @s minecraft:blindness 3 0 true
@@ -18,4 +21,8 @@ attribute @s minecraft:attack_damage base set 0
 attribute @s minecraft:jump_strength base set 0
 # 0.10000000149011612
 attribute @s minecraft:movement_speed base set 0
+# 4.5
+attribute @s minecraft:block_interaction_range base set 0
+# 3
+attribute @s minecraft:entity_interaction_range base set 0
 

@@ -8,5 +8,4 @@
 
 
 scoreboard players set $acknowledgement_code survivalgames.state 1
-scoreboard players set survivalgames.lobby survivalgames.state 1
 

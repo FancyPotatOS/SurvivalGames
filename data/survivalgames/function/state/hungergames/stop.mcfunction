@@ -7,5 +7,5 @@
 #
 
 
-
+function survivalgames:state/hungergames/clear
 

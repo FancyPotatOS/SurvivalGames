@@ -7,6 +7,8 @@
 #
 
 
+scoreboard players set survivalgames.hungergames survivalgames.state 1
+
 # Start a new game
 function survivalgames:game/new_game
 

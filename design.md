@@ -59,11 +59,12 @@ Assuming your state is called `<state>`.
 To transition to another state, assign the appropriate storage values `survivalgames:state next_state` and `survivalgames:state fallback_state` then run the function `survivalgames:state/transition`
 
 - API calls with a hashtag ***#*** should only be run when the storage `survivalgames:state next_state` is this state's ID
-- API calls with an asterick ***\**** should only be run when the scoreboard `survivalgames.state <state>.current` is 1
+- API calls with an at sign ***@*** should only be run when the storage `survivalgames:state current_state` is this state's ID
+- API calls with an asterick ***\**** should only be run when the scoreboard `<state> survivalgames.state` is 1
 
 **`#survivalgames:state/acknowledge` #**
 
-Sets an appropriate acknowledgement code in scoreboard `$acknowledgement_code survivalgames.state `. Use this to check the state requirements (player count, map chosen, configuration, etc.) If acknowledged, now is the time to set the score `<state> survivalgames.state` to 1.
+Sets an appropriate acknowledgement code in scoreboard `$acknowledgement_code survivalgames.state `. Use this to check the state requirements (player count, map chosen, configuration, etc.)
 
 It's important to note that if a state fails to transition to another state and this is the fallback state, an acknowledgement is not asked of this state.
 
@@ -78,9 +79,9 @@ Acknowledgement Codes:
     - This could be due to a lack of players, or any other reason. It's recommended to display a reason.
     - If set, will quietly send the state to its fallback state.
 
-**`#survivalgames:state/prestart` \***
+**`#survivalgames:state/prestart` @**
 
-Run before the state is set up.
+Run before the state is set up. This is the time to set the score `<state> survivalgames.state` to 1.
 
 **`#survivalgames:state/start` \***
 

@@ -7,7 +7,5 @@
 #
 
 
-function #survivalgames:state/prestart
-
 function #survivalgames:state/start
 

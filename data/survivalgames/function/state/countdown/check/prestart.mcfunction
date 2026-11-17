@@ -1,4 +1,4 @@
 
 # Countdown Prestart
 
-execute if score survivalgames.countdown survivalgames.state matches 1 run function survivalgames:state/countdown/prestart
+execute if data storage survivalgames:state {current_state:"survivalgames:countdown"} run function survivalgames:state/countdown/prestart

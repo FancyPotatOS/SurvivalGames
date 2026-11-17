@@ -7,5 +7,5 @@
 #
 
 
-
+scoreboard players set survivalgames.countdown survivalgames.state 1
 

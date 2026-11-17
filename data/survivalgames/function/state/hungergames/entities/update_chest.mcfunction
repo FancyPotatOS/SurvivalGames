@@ -10,6 +10,8 @@
 # Check marker type
 execute unless entity @s[type=minecraft:marker,tag=survivalgames.chest] run return 0
 
+setblock ~ ~ ~ air strict
+
 # Set chest with type
 data modify storage survivalgames:temp macro set value {facing:"north",type:"single",waterlogged:"false"}
 

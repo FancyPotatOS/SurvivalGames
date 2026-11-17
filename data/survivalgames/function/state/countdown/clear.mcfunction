@@ -10,3 +10,5 @@
 effect clear @a
 scoreboard players reset survivalgames.countdown survivalgames.state
 
+team leave survivalgames.lobby
+

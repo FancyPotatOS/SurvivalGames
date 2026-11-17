@@ -19,3 +19,5 @@ scoreboard players operation $temp.map.countdown.mod survivalgames.game %= $temp
 
 execute if score $temp.map.countdown.mod survivalgames.game matches 0.. run function survivalgames:state/hungergames/display_countdown
 
+execute if score $temp.map.countdown survivalgames.game matches ..0 as @a run function survivalgames:state/hungergames/release_player
+

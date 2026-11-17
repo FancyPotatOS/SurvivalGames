@@ -18,3 +18,5 @@ effect give @s minecraft:saturation infinite 255 true
 execute unless score $temp.state.lobby.skip_teleport survivalgames.state matches 1 run tp @s @e[type=marker,tag=survivalgames.map.lobby,limit=1,sort=random]
 scoreboard players reset $temp.state.lobby.skip_teleport survivalgames.state
 
+team join survivalgames.lobby
+

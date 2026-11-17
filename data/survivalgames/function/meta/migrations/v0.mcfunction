@@ -71,6 +71,9 @@ gamerule minecraft:tnt_explosion_drop_decay false
 gamerule minecraft:universal_anger false
 gamerule minecraft:water_source_conversion false
 
+# Difficulty
+difficulty normal
+
 # Player Data
 data merge storage survivalgames:playerdata {}
 

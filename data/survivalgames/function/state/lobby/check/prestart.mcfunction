@@ -1,4 +1,4 @@
 
 # Lobby Prestart
 
-execute if score survivalgames.lobby survivalgames.state matches 1 run function survivalgames:state/lobby/prestart
+execute if data storage survivalgames:state {current_state:"survivalgames:lobby"} run function survivalgames:state/lobby/prestart

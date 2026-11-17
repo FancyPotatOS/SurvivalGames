@@ -7,5 +7,5 @@
 #
 
 
-
+scoreboard players set survivalgames.lobby survivalgames.state 1
 

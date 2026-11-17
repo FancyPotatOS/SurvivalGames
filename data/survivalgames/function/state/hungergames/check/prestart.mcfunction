@@ -1,4 +1,4 @@
 
 # Hunger Games Prestart
 
-execute if score survivalgames.hungergames survivalgames.state matches 1 run function survivalgames:state/hungergames/prestart
+execute if data storage survivalgames:state {current_state:"survivalgames:hungergames"} run function survivalgames:state/hungergames/prestart

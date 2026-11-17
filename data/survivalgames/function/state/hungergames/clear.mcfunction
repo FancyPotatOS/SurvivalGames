@@ -8,5 +8,7 @@
 
 
 effect clear @a
+execute as @a run function survivalgames:state/hungergames/release_player
+
 scoreboard players reset survivalgames.hungergames survivalgames.state
 

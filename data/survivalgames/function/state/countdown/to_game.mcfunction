@@ -8,7 +8,7 @@
 
 
 data modify storage survivalgames:state fallback_state set value "survivalgames:lobby"
-data modify storage survivalgames:state next_state set value "survivalgames:in_game"
+data modify storage survivalgames:state next_state set value "survivalgames:hungergames"
 
 function survivalgames:state/transition
 
