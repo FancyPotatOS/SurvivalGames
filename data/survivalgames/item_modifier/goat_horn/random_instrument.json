@@ -1,0 +1,81 @@
+{
+  "type": "minecraft:sequence",
+  "functions": [
+    {
+      "type": "minecraft:set_components",
+      "components": {
+        "minecraft:instrument": "minecraft:dream_goat_horn"
+      }
+    },
+    {
+      "type": "minecraft:set_components",
+      "components": {
+        "minecraft:instrument": "minecraft:yearn_goat_horn"
+      },
+      "condition": {
+        "type": "minecraft:random_chance",
+        "chance": 0.5
+      }
+    },
+    {
+      "type": "minecraft:set_components",
+      "components": {
+        "minecraft:instrument": "minecraft:call_goat_horn"
+      },
+      "condition": {
+        "type": "minecraft:random_chance",
+        "chance": 0.33333
+      }
+    },
+    {
+      "type": "minecraft:set_components",
+      "components": {
+        "minecraft:instrument": "minecraft:admire_goat_horn"
+      },
+      "condition": {
+        "type": "minecraft:random_chance",
+        "chance": 0.25
+      }
+    },
+    {
+      "type": "minecraft:set_components",
+      "components": {
+        "minecraft:instrument": "minecraft:feel_goat_horn"
+      },
+      "condition": {
+        "type": "minecraft:random_chance",
+        "chance": 0.2
+      }
+    },
+    {
+      "type": "minecraft:set_components",
+      "components": {
+        "minecraft:instrument": "minecraft:seek_goat_horn"
+      },
+      "condition": {
+        "type": "minecraft:random_chance",
+        "chance": 0.16666
+      }
+    },
+    {
+      "type": "minecraft:set_components",
+      "components": {
+        "minecraft:instrument": "minecraft:sing_goat_horn"
+      },
+      "condition": {
+        "type": "minecraft:random_chance",
+        "chance": 0.142857
+      }
+    },
+    {
+      "type": "minecraft:set_components",
+      "components": {
+        "minecraft:instrument": "minecraft:ponder_goat_horn"
+      },
+      "condition": {
+        "type": "minecraft:random_chance",
+        "chance": 0.125
+      }
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 {
     "values": [
         "survivalgames:player/id/check_init",
-        "survivalgames:player/uuid/check_init"
+        "survivalgames:player/uuid/check_init",
+        "survivalgames:player/setup"
     ]
 }

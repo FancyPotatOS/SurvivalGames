@@ -1,5 +1,8 @@
 {
     "values": [
-        "survivalgames:team/reset_config"
+        "survivalgames:team/reset_config",
+        "survivalgames:state/lobby/reset_config",
+        "survivalgames:state/countdown/reset_config",
+        "survivalgames:map/reset_config"
     ]
 }

@@ -1,0 +1,51 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "value": "survivalgames:map/chest/basic_weapons"
+        }
+      ],
+      "condition": {
+        "type": "minecraft:random_chance",
+        "chance": 1
+      }
+    },
+    {
+      "rolls": {
+        "type": "minecraft:weighted_list",
+        "distribution": [
+          {
+            "weight": 5,
+            "data": 1
+          },
+          {
+            "weight": 1,
+            "data": 2
+          }
+        ]
+      },
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "value": "survivalgames:map/chest/food"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "value": "survivalgames:map/chest/armor/leather"
+        }
+      ],
+      "condition": {
+        "type": "minecraft:random_chance",
+        "chance": 0.333
+      }
+    }
+  ]
+}

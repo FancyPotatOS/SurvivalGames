@@ -1,0 +1,35 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:goat_horn",
+          "weight": 10,
+          "modifier": "survivalgames:goat_horn/random_instrument"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:ender_eye",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:spider_eye",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "survivalgames:map/chest/garbage/potions",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "survivalgames:map/chest/garbage/banner",
+          "weight": 10
+        }
+      ]
+    }
+  ]
+}

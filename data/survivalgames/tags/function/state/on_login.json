@@ -1,5 +1,7 @@
 {
     "values": [
-        
+        "survivalgames:state/lobby/check/on_login",
+        "survivalgames:state/countdown/check/on_login",
+        "survivalgames:state/hungergames/check/on_login"
     ]
 }

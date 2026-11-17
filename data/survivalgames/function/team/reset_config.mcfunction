@@ -7,6 +7,6 @@
 #
 
 
-scoreboard players set $config.max_team survivalgames.team.id 2
-scoreboard players set $config.min_team survivalgames.team.id 1
+scoreboard players set $team.max_team survivalgames.config 2
+scoreboard players set $team.min_team survivalgames.config 1
 

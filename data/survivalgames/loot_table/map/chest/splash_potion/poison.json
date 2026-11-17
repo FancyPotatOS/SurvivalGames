@@ -1,0 +1,48 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:splash_potion",
+          "weight": 150,
+          "modifier": {
+            "type": "minecraft:set_components",
+            "components": {
+              "minecraft:potion_contents": {
+                "potion": "minecraft:poison"
+              }
+            }
+          }
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:splash_potion",
+          "weight": 20,
+          "modifier": {
+            "type": "minecraft:set_components",
+            "components": {
+              "minecraft:potion_contents": {
+                "potion": "minecraft:long_poison"
+              }
+            }
+          }
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:splash_potion",
+          "weight": 20,
+          "modifier": {
+            "type": "minecraft:set_components",
+            "components": {
+              "minecraft:potion_contents": {
+                "potion": "minecraft:strong_poison"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

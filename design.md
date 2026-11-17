@@ -24,9 +24,9 @@ A unique number for each player. Players that join will be given an id if they d
 ### Teams
 
 #### Config
-`$config.max_team` - Max members for a team
+`$team.max_team survivalgames.config` - Max members for a team
 
-`$config.min_team` - Minimum members for a team
+`$team.min_team survivalgames.config` - Minimum members for a team
 
 Scoreboard `survivalgames.team.id dummy`
 \
@@ -63,7 +63,7 @@ To transition to another state, assign the appropriate storage values `survivalg
 
 **`#survivalgames:state/acknowledge` #**
 
-Sets an appropriate acknowledgement code in scoreboard `acknowledgement_code `. Use this to check the state requirements (player count, map chosen, configuration, etc.) If acknowledged, now is the time to set the score `survivalgames.state <state>.current` to 1.
+Sets an appropriate acknowledgement code in scoreboard `$acknowledgement_code survivalgames.state `. Use this to check the state requirements (player count, map chosen, configuration, etc.) If acknowledged, now is the time to set the score `<state> survivalgames.state` to 1.
 
 It's important to note that if a state fails to transition to another state and this is the fallback state, an acknowledgement is not asked of this state.
 
@@ -148,21 +148,67 @@ The attacker (this entity) is tagged with the tag `survivalgames.state.attacker`
 \
 If the target is alive, it is tagged with the tag `survivalgames.state.target`
 
+### Map Features
+
+All entities relating to the map should be tagged with `survivalgames.map`
+
+#### Spawn Points
+
+Center of the cornucopia is marker tagged `survivalgames.cornucopia.center`
+
+Spread the players around it evenly based on map configuration `$map.spawn_radius survivalgames.config`
+
+#### Starting
+
+When the game is setup, players should be given full saturation and health, be unable to jump or move, and a countdown for `$map.countdown survivalgames.config` ticks should start.
+
+#### Cake
+
+Cake locations have markers with the tag `survivalgames.cake`.
+
+#### Chest Loot
+
+Chest locations have markers with the tag `survivalgames.chest`.
+
+The direction the chest is facing is under the tag `survivalgames.chest.facing.*`
+\
+The type/side of chest is under the tag `survivalgames.chest.type.*`
+\
+Chests under the water/waterlogged are tagged with `survivalgames.chest.waterlogged`
+
+There are a couple different chest loots:
+
+`survivalgames.chest.loot.cornucopia`: Cornucopia chest
+\
+`survivalgames.chest.loot.garbage`: Chests found in large groups with barely anything in it
+\
+`survivalgames.chest.loot.basic`: Common and predictable chests
+\
+`survivalgames.chest.loot.better`: Uncommon and hidden chests
+\
+`survivalgames.chest.loot.epic`: Rare chests with some kind of difficulty to obtain
+
+#### Map Clearing
+
+The particular round will have an ID under score `$current_game survivalgames.game`. This comes from the score `$next_game survivalgames.game` that increments when drawn from.
+
+We can assign every entity (item, markers, etc.) with the current game to designate that it's been set up for that game. If an entity's ID is a previous game, then we know it's outdated. This should allow us to not require loading in the whole map during set up or game start.
+
+This check is done every `$map.entity_check_time survivalgames.config` ticks
+
+#### Player Compass
+
+A compass that points to the nearest player.
+
+If the compass's custom_data `survivalgames{names_player:true}` then the name is visible
+
+The compass's radius is custom_data `survivalgames.radius`, or infinite if not specified
+
+When there is `$map.compass.remaining_time survivalgames.config` ticks left in the game, a compass is given to each player
+
+If the compass has the max_damage component, then it loses durablity when used
+
 ## Other Features
-
-Spawn points
-
-Grace Period
-
-Chest Loot
-
-Safe Zone
-
-Player Compass
-
-Maps/Voting
-
-Map Clearing
 
 The Feast/Supply Drops
 
@@ -179,3 +225,5 @@ Bounties
 Kill Rewards
 
 Traps/Hazards
+
+Maps/Voting

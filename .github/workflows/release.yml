@@ -1,6 +1,6 @@
 name: Package release
 
-# Thanks, Copilot
+# Thanks, Copilot for this workflow
 
 on:
   release:

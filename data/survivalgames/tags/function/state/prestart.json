@@ -1,5 +1,7 @@
 {
     "values": [
-        
+        "survivalgames:state/lobby/check/prestart",
+        "survivalgames:state/countdown/check/prestart",
+        "survivalgames:state/hungergames/check/prestart"
     ]
 }

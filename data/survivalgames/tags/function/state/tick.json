@@ -1,5 +1,7 @@
 {
     "values": [
-        
+        "survivalgames:state/lobby/check/tick",
+        "survivalgames:state/countdown/check/tick",
+        "survivalgames:state/hungergames/check/tick"
     ]
 }

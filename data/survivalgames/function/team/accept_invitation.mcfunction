@@ -24,7 +24,7 @@ scoreboard players operation $temp.total_size survivalgames.team.id = $temp.team
 scoreboard players add $temp.total_size survivalgames.team.id 1
 
 # Stop if team would be too full
-execute if score $config.max_team survivalgames.team.id < $temp.total_size survivalgames.team.id run return run tellraw @a[tag=!something] {"translate":"survivalgames.team.invitation.failure.team_full","fallback":"That team is full!"}
+execute if score $team.max_team survivalgames.config < $temp.total_size survivalgames.team.id run return run tellraw @a[tag=!something] {"translate":"survivalgames.team.invitation.failure.team_full","fallback":"That team is full!"}
 
 # Stop if team was actually empty
 execute if score $temp.total_size survivalgames.team.id matches 1 run return run tellraw @a[tag=!something] {"translate":"survivalgames.team.invitation.failure.team_empty","fallback":"That team is empty!"}

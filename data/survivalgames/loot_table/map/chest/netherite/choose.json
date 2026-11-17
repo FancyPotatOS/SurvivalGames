@@ -1,0 +1,46 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+            "type": "minecraft:item",
+            "name": "minecraft:netherite_upgrade_smithing_template"
+        }
+      ],
+      "condition": {
+        "type": "minecraft:int_value_check",
+        "value": {
+          "type": "minecraft:score",
+          "target": {
+            "type": "minecraft:fixed",
+            "name": "$map.chest.netherite.choice"
+          },
+          "score": "survivalgames.game"
+        },
+        "test": 0
+      }
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+            "type": "minecraft:item",
+            "name": "minecraft:netherite_ingot"
+        }
+      ],
+      "condition": {
+        "type": "minecraft:int_value_check",
+        "value": {
+          "type": "minecraft:score",
+          "target": {
+            "type": "minecraft:fixed",
+            "name": "$map.chest.netherite.choice"
+          },
+          "score": "survivalgames.game"
+        },
+        "test": 1
+      }
+    }
+  ]
+}

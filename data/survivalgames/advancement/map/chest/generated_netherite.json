@@ -1,0 +1,13 @@
+{
+  "criteria": {
+    "survivalgames.map.chest.generated_netherite": {
+      "trigger": "minecraft:player_generates_container_loot",
+      "conditions": {
+        "loot_tables": "#survivalgames:map/chest/generates_netherite"
+      }
+    }
+  },
+  "rewards": {
+    "function": "survivalgames:map/chest/advancements/generated_netherite"
+  }
+}

@@ -19,3 +19,6 @@ execute as @p[tag=survivalgames.team.grouped] at @s run function survivalgames:t
 # Run if there's more players
 execute as @p[tag=survivalgames.team.grouped] if entity @s at @s run function survivalgames:team/team_players/rec
 
+# Ungroup team
+function survivalgames:team/ungroup_team
+
